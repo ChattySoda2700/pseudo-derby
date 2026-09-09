@@ -1,1 +1,117 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Pseudo Derby</title>
+  <link rel="stylesheet" href="style.css">
+</head>
 
+<body>
+
+<header>
+  <div class="logo">🏇 PSEUDO DERBY</div>
+  <div class="points">
+    <span>所持ポイント</span>
+    <strong id="points">10,000</strong> pt
+  </div>
+</header>
+
+<main>
+
+  <section id="raceList" class="screen">
+    <h1>🏇 レース一覧</h1>
+
+    <div class="race-card" onclick="openRace(1)">
+      <div>
+        <span class="venue">中京</span>
+        <strong>1R</strong>
+      </div>
+      <span>3歳未勝利</span>
+      <button>予想する</button>
+    </div>
+
+    <div class="race-card" onclick="openRace(2)">
+      <div>
+        <span class="venue">中京</span>
+        <strong>2R</strong>
+      </div>
+      <span>2歳未勝利</span>
+      <button>予想する</button>
+    </div>
+
+    <div class="race-card" onclick="openRace(11)">
+      <div>
+        <span class="venue">中京</span>
+        <strong>11R</strong>
+      </div>
+      <span>メインレース</span>
+      <button>予想する</button>
+    </div>
+
+  </section>
+
+
+  <section id="betScreen" class="screen hidden">
+
+    <button class="back" onclick="showRaceList()">← レース一覧</button>
+
+    <h1 id="raceTitle">中京11R</h1>
+
+    <div class="horses" id="horses"></div>
+
+    <h2>🎫 券種</h2>
+
+    <div class="bet-types">
+
+      <button onclick="selectBetType('win')">単勝</button>
+      <button onclick="selectBetType('place')">複勝</button>
+      <button onclick="selectBetType('quinella')">馬連</button>
+      <button onclick="selectBetType('wide')">ワイド</button>
+      <button onclick="selectBetType('exacta')">馬単</button>
+      <button onclick="selectBetType('trio')">3連複</button>
+      <button onclick="selectBetType('trifecta')">3連単</button>
+
+    </div>
+
+    <div class="selection">
+
+      <h2 id="betTypeName">単勝</h2>
+
+      <div id="selectionArea">
+        券種を選択してください
+      </div>
+
+      <div class="amount">
+        <button onclick="changeAmount(-100)">−</button>
+        <strong id="amount">100</strong> pt
+        <button onclick="changeAmount(100)">＋</button>
+      </div>
+
+      <button class="buy" onclick="placeBet()">🎫 購入する</button>
+
+    </div>
+
+  </section>
+
+
+  <section id="resultScreen" class="screen hidden">
+
+    <h1>🏁 レース結果</h1>
+
+    <div id="result"></div>
+
+    <div id="payout"></div>
+
+    <button class="back" onclick="showRaceList()">
+      レース一覧へ
+    </button>
+
+  </section>
+
+</main>
+
+<script src="app.js"></script>
+
+</body>
+</html>
